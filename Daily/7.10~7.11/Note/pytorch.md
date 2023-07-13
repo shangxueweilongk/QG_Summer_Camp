@@ -1,6 +1,6 @@
 ### 使用tensorboard绘制函数，展示图片
 
-~~~
+~~~python
 #导包
 from torch.utils.tensorboard import SummaryWriter
 writer =SummaryWriter("logs")
@@ -26,7 +26,7 @@ writer.close()
 ### 使用tensor上面是用nparray
 
 
-~~~
+~~~python
 from torchvision import transforms
 from PIL import Image
 from torch.utils.tensorboard import SummaryWriter
@@ -47,7 +47,7 @@ writer.close()
 
 ### Transforms的操作
 
-~~~
+~~~python
 
 from torchvision import transforms
 from PIL import Image
@@ -100,7 +100,7 @@ writer.close()
 ### datasets和DataLoader
 
 
-~~~
+~~~python
 import torchvision
 
 #下载图片
@@ -142,5 +142,83 @@ writer.close()
 ~~~
 x=torch.tensor(1.0) ##正确的
 y=transforms.ToTensor(2.0) ##错误的，不能输入数字会报错，只接受PIL和numarray
+~~~
+
+
+
+### 图像标准化与归一化
+
++ 归一化：归一化后，不同维度之间的特征在数值上有一定比较性，可以大大提高分类器的准确性
+
+![](https://shangxueweilong.oss-cn-guangzhou.aliyuncs.com/20230713153643.png)
+
++ 标准化后，最优解的寻优过程明显会变得平缓，更容易正确的收敛到最优解
+
+*详见：[一文读懂图像数据的标准化与归一化图像标准化的意义·城府、的博客-CSDN博客](https://blog.csdn.net/qq_45704645/article/details/111089328)*
+
+
+
+### X.view()
+
++ **x.view()就是对tensor进行reshape：**
+
+  在某一个维度，我们可以传入数字-1，自动对维度进行计算并变化：
+
+  假设我们有一个数据维度为【3，5，2】的tensor，我们想要将其转化为其中两个维度分别为【3，1】，【5，2】，而剩下的第三个维度自动进行计算，那么我们可以使用-1来代替【3，1，10】当中的10，以及用-1来代替转化后【5，2，3】维度当中的数字3.我们可以发现3x1x10=3x5x2=5x2x3，因此变化后的维度乘积是相等的。
+
+~~~python
+import torch
+v1 = torch.range(1, 4)
+v2 = v1.view(2, 2)
+print(v2)
+v3 = v2.view(4,-1)
+print(v3)
+~~~
+
+![](https://shangxueweilong.oss-cn-guangzhou.aliyuncs.com/20230713154109.png)
+
+
+
+
+
+### F.relu() 与 nn.ReLU() 的区别
+
+其实这两种方法都是使用relu激活，只是使用的场景不一样，F.relu()是函数调用，一般使用在foreward函数里。而nn.ReLU()是模块调用，一般在定义网络层的时候使用。
+
+~~~python
+import torch.nn as nn
+import torch.nn.functional as F
+
+class NET1(nn.Module):
+    def __init__(self):
+        super(NET1, self).__init__()
+        self.conv = nn.Conv2d(3, 16, 3, 1, 1)
+        self.bn = nn.BatchNorm2d(16)
+        self.relu = nn.ReLU()  # 模块的激活函数
+
+    def forward(self, x):
+        out = self.conv(x)
+        x = self.bn(x)
+        out = self.relu()
+        return out
+
+
+class NET2(nn.Module):
+    def __init__(self):
+        super(NET2, self).__init__()
+        self.conv = nn.Conv2d(3, 16, 3, 1, 1)
+        self.bn = nn.BatchNorm2d(16)
+
+    def forward(self, x):
+        x = self.conv(x)
+        x = self.bn(x)
+        out = F.relu(x)  # 函数的激活函数
+        return out
+
+
+net1 = NET1()
+net2 = NET2()
+print(net1)
+print(net2)
 ~~~
 
