@@ -156,7 +156,7 @@ y=transforms.ToTensor(2.0) ##错误的，不能输入数字会报错，只接受
 
 *详见：[一文读懂图像数据的标准化与归一化图像标准化的意义·城府、的博客-CSDN博客](https://blog.csdn.net/qq_45704645/article/details/111089328)*
 
-
+[(32条消息) 图像标准化与归一化_怎么显示归一化后的图像_niuniubeibeikzh的博客-CSDN博客](https://blog.csdn.net/niuniubeibeikzh/article/details/105286867?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-105286867-blog-115267174.235^v38^pc_relevant_anti_vip&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
 
 ### X.view()
 
@@ -183,7 +183,7 @@ print(v3)
 
 ### F.relu() 与 nn.ReLU() 的区别
 
-其实这两种方法都是使用relu激活，只是使用的场景不一样，F.relu()是函数调用，一般使用在foreward函数里。而nn.ReLU()是模块调用，一般在定义网络层的时候使用。
++ 其实这两种方法都是使用relu激活，只是使用的场景不一样，F.relu()是函数调用，一般使用在foreward函数里。而nn.ReLU()是模块调用，一般在定义网络层的时候使用。
 
 ~~~python
 import torch.nn as nn
@@ -221,4 +221,26 @@ net2 = NET2()
 print(net1)
 print(net2)
 ~~~
+
++ 参数inplace的作用：降低内存
+
+[(32条消息) 激活函数nn.ReLU(inplace=True)中inplace的作用_relu inplace=true_HealthScience的博客-CSDN博客](https://blog.csdn.net/weixin_43135178/article/details/115477790?ops_request_misc=%7B%22request%5Fid%22%3A%22168931939216800222873188%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=168931939216800222873188&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-115477790-null-null.142^v88^insert_down1,239^v2^insert_chatgpt&utm_term=relu里面的inplace参数&spm=1018.2226.3001.4187)
+
+## iter()
+
+[(32条消息) Pytorch中iter(dataloader)的使用_沐雲小哥的博客-CSDN博客](https://blog.csdn.net/weixin_44533869/article/details/110856518)
+
+
+
+## softmax
+
+**dim = 0,在列上进行Softmax;dim = 1,在行上进行Softmax，默认dim=1**
+
+**predict = torch.softmax(output, dim=0)**
+
+
+
+## Pytorch中shuffle=True的作用
+
+[(32条消息) Pytorch中shuffle=True的作用_pytorch shuffle_Z字君的博客-CSDN博客](https://blog.csdn.net/zzc_zhuyu/article/details/116659157?ops_request_misc=%7B%22request%5Fid%22%3A%22168933820316800182146004%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=168933820316800182146004&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-116659157-null-null.142^v88^insert_down1,239^v2^insert_chatgpt&utm_term=shuffle%3Dtrue&spm=1018.2226.3001.4187)
 
