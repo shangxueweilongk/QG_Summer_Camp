@@ -244,3 +244,109 @@ print(net2)
 
 
 
+
+
+## torch.bmm
+
+![](https://shangxueweilong.oss-cn-guangzhou.aliyuncs.com/20230719193031.png)
+
+[(33条消息) torch.bmm()函数解读_wang xiang的博客-CSDN博客](https://blog.csdn.net/qq_40178291/article/details/100302375)
+
+
+
+## torch.randn()
+
++ 返回一个符合均值为0，方差为1的[正态分布](https://so.csdn.net/so/search?q=正态分布&spm=1001.2101.3001.7020)（标准正态分布）中填充随机数的张量
+
++ ~~~python
+  >>> torch.randn(4)
+  tensor([-2.1436,  0.9966,  2.3426, -0.6366])
+  >>> torch.randn(2, 3)
+  tensor([[ 1.5954,  2.8929, -1.0923],
+          [ 1.1719, -0.4709, -0.1996]])
+  
+  ~~~
+
+
+
+## torch.cat()
+
+~~~python
+a = torch.randn(2,3)
+b =  torch.randn(3,3)
+c = torch.cat((a,b),dim=0)
+a,b,c
+
+输出结果如下：
+(tensor([[-0.90, -0.37,  1.96],
+         [-2.65, -0.60,  0.05]]),
+ tensor([[ 1.30,  0.24,  0.27],
+         [-1.99, -1.09,  1.67],
+         [-1.62,  1.54, -0.14]]),
+ tensor([[-0.90, -0.37,  1.96],
+         [-2.65, -0.60,  0.05],
+         [ 1.30,  0.24,  0.27],
+         [-1.99, -1.09,  1.67],
+         [-1.62,  1.54, -0.14]]))
+
+
+a = torch.randn(2,3)
+b =  torch.randn(2,4)
+c = torch.cat((a,b),dim=1)
+a,b,c
+
+输出结果如下：
+(tensor([[-0.55, -0.84, -1.60],
+         [ 0.39, -0.96,  1.02]]),
+ tensor([[-0.83, -0.09,  0.05,  0.17],
+         [ 0.28, -0.74, -0.27, -0.85]]),
+ tensor([[-0.55, -0.84, -1.60, -0.83, -0.09,  0.05,  0.17],
+         [ 0.39, -0.96,  1.02,  0.28, -0.74, -0.27, -0.85]]))
+
+
+~~~
+
+[(32条消息) Pytorch中torch.cat()函数解析_cv_lhp的博客-CSDN博客](https://blog.csdn.net/flyingluohaipeng/article/details/125038212?ops_request_misc=%7B%22request%5Fid%22%3A%22168938767016800182122769%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=168938767016800182122769&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-125038212-null-null.142^v88^insert_down1,239^v2^insert_chatgpt&utm_term=torch.cat&spm=1018.2226.3001.4187)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
