@@ -310,9 +310,27 @@ a,b,c
 
 
 
+## nn.AdaptiveAvgPool2d()
 
+~~~python
+import torch
+import torch.nn as nn
+m = nn.AdaptiveAvgPool2d((5,1))
+m1 = nn.AdaptiveAvgPool2d((None,5))
+m2 = nn.AdaptiveAvgPool2d(1)
+input = torch.randn(2, 64, 8, 9)
+output = m(input)
+output1 = m1(input)
+output2 = m2(input)
+print('nn.AdaptiveAvgPool2d((5,1)):',output.shape)
+print('nn.AdaptiveAvgPool2d((None,5)):',output1.shape)
+print('nn.AdaptiveAvgPool2d(1):',output2.shape)
 
+~~~
 
+![](https://shangxueweilong.oss-cn-guangzhou.aliyuncs.com/20230719204024.png)
+
+[(32条消息) Pytorch学习笔记(五):nn.AdaptiveAvgPool2d()函数详解_ZZY_dl的博客-CSDN博客](https://blog.csdn.net/m0_51004308/article/details/118000391)
 
 
 
