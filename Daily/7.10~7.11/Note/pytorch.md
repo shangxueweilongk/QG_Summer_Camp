@@ -234,13 +234,13 @@ print(net2)
 
 ## softmax
 
-**dim = 0,在列上进行Softmax;dim = 1,在行上进行Softmax，默认dim=1**
-
-**predict = torch.softmax(output, dim=0)**
+![](https://shangxueweilong.oss-cn-guangzhou.aliyuncs.com/20230719093943.png)
 
 
 
 ## Pytorch中shuffle=True的作用
 
 [(32条消息) Pytorch中shuffle=True的作用_pytorch shuffle_Z字君的博客-CSDN博客](https://blog.csdn.net/zzc_zhuyu/article/details/116659157?ops_request_misc=%7B%22request%5Fid%22%3A%22168933820316800182146004%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=168933820316800182146004&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-116659157-null-null.142^v88^insert_down1,239^v2^insert_chatgpt&utm_term=shuffle%3Dtrue&spm=1018.2226.3001.4187)
+
+
 
